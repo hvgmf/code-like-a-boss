@@ -1,7 +1,7 @@
  
 # How to write maintainable code
 
-Writing maintainable code in a big code base that is human friendly is hard. These are good guidlines to follow but not a gospel of the ultimate truth, there will always be exceptions.
+Writing maintainable code in a big code base that is human friendly is hard. These are good guidelines to follow but not a gospel of the ultimate truth, there will always be exceptions.
 
 ## General
 
