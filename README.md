@@ -348,7 +348,7 @@ it's both ugly, hard to read, and very easy to get wrong.
 
 ✅ YES
 ```go
-    data, _ := json.Marshal(struct {
+    bytes, _ := json.Marshal(struct {
         Name string
         User string
     }{
@@ -356,5 +356,5 @@ it's both ugly, hard to read, and very easy to get wrong.
         User: username,
     })
 
-    text = string(data)
+    text := string(bytes)
 ```
