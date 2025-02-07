@@ -1,4 +1,3 @@
- 
 # How to write maintainable code
 
 Writing maintainable code in a big code base that is human friendly is hard. These are good guidelines to follow but not a gospel of the ultimate truth, there will always be exceptions.
@@ -47,7 +46,7 @@ Nesting makes the logic more complex and the code harder to understand, use only
 ```
 
 ### Avoid negations
-"if is not equals" is more complicated to read than "if equals".
+"if is not equals" is often more complicated to read than "if equals".
 
 ❌ NO
 ```go
@@ -135,7 +134,7 @@ Branching with else is often not necessary and will needlessly complicate the co
 ```
 
 ### Don't else after return
-It's extra code that branch into a pointless new variable scope.
+It's often just extra code that branch into a pointless new variable scope.
 
 ❌ NO
 ```go
@@ -312,7 +311,7 @@ Use constants to make the code more readable and avoid human errors.
 
 ❌ NO
 ```go
-    if (permission == "is_adimn") {
+    if (permission == "is_admin_user") {
         admin()
     }
 
@@ -323,7 +322,7 @@ Use constants to make the code more readable and avoid human errors.
 
 ✅ YES
 ```go
-    const ADMIN = "is_admin"
+    const ADMIN = "is_admin_user"
 ...
     if (permission == ADMIN) {
         admin()
@@ -337,6 +336,7 @@ Use constants to make the code more readable and avoid human errors.
 ## Go specific
 
 - Avoid writing literal json
+- Use else for local scooping
 
 ### Avoid writing literal json
 it's both ugly, hard to read, and very easy to get wrong.
@@ -357,4 +357,18 @@ it's both ugly, hard to read, and very easy to get wrong.
     })
 
     text := string(bytes)
+```
+
+### Use else for local scooping
+When the if statement is very simple and you can keep the variable within the scoop
+
+✅ YES
+```go
+    if user, err := getUser(); err != nil {
+      // handle error
+    } else {
+      user.Update();
+    }
+
+    // user doesn't need to exist here
 ```
