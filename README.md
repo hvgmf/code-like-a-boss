@@ -50,19 +50,19 @@ Nesting makes the logic more complex and the code harder to understand, use only
 
 ❌ NO
 ```go
-    if !user.isLoggedIn() {
-        login()
+    if !user.isAdmin() {
+        user()
     } else {
-        logout()
+        admin()
     }
 ```
 
 ✅ YES
 ```go
-    if user.isLoggedIn() {
-        logout()
+    if user.isAdmin() {
+        admin()
     } else {
-        login()
+        user()
     }
 ```
 
