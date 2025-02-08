@@ -86,9 +86,8 @@ Terminating as soon as possible makes the code easier to understand.
 ```go
     func test(x int) {
 
-        dostuff1()
-
         if (x == 0) {  // we know only dostuff1() is called if x is 0
+            dostuff1()
             return
         }
 
@@ -360,7 +359,7 @@ it's both ugly, hard to read, and very easy to get wrong.
 ```
 
 ### Use else for local scooping
-When the if statement is very simple and you can keep the variable within the scoop
+When the if statement is very simple and you can keep the variable within the scoop.
 
 ✅ YES
 ```go
